@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nes-processo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:wght@300;400;600&family=Noto+Serif+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#04507f;
+  --blue-text:#0a5a8e;
+  --gold:#e9c46a;
+  --red:#e03a4e;
+  --ink:#111;
+  --muted:#8c8c8c;
+  --line:#e3e3e3;
+  --bg:#fff;
+  --serif-display:"Noto Serif Display","Playfair Display",Georgia,serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Hanken Grotesk",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans)}
+a{color:inherit;text-decoration:none}
+a:hover h2,a:hover h3{text-decoration:underline}
+
+/* ---------- Header ---------- */
+.topbar{background:var(--blue);color:#fff}
+.brands{display:flex;justify-content:center;gap:24px;font-size:11px;letter-spacing:.2px;padding-top:4px;height:18px;opacity:.9;text-transform:uppercase}
+.mainbar{height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 40px}
+.mainbar .left,.mainbar .right{display:flex;align-items:center;gap:18px}
+.mainbar .right{justify-content:flex-end}
+.mainbar .left a{font-size:13px;font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.icon{width:18px;height:18px;opacity:.7}
+.logo{font-family:var(--serif-display);font-weight:700;font-size:42px;letter-spacing:-1.5px;line-height:1;margin-top:-6px;color:#fff}
+.mainbar .right a.code{font-size:13px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.btn-sub{background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;padding:11px 16px;text-transform:uppercase;letter-spacing:.2px}
+.login{font-size:13px;display:flex;align-items:center;gap:6px}
+.nav{background:#fff;height:50px;display:flex;justify-content:center;align-items:center;gap:32px;font-size:13px;text-transform:uppercase;box-shadow:0 2px 6px rgba(0,0,0,.08);position:relative;z-index:2;overflow-x:auto;white-space:nowrap;padding:0 16px}
+.nav a{letter-spacing:.2px}
+.nav a:hover{color:var(--blue-text)}
+
+/* ---------- Grid ---------- */
+.page{max-width:1264px;margin:0 auto;padding:32px 20px 80px}
+.grid{display:grid;grid-template-columns:190px 430px 260px 260px;justify-content:space-between;gap:0}
+.col{display:flex;flex-direction:column;gap:32px;position:relative;padding:0}
+.col + .col::before{content:"";position:absolute;left:-14px;top:0;bottom:0;width:1px;background:var(--line)}
+.col.c2::before{left:-14px}
+.sep{border:0;border-top:1px solid var(--line)}
+
+/* ---------- Cards ---------- */
+.thumb{width:100%;aspect-ratio:201/133;display:block;background:#ccc;margin-bottom:20px;overflow:hidden}
+.thumb svg{width:100%;height:100%;display:block}
+.hero .thumb{aspect-ratio:467/308}
+.kicker{font-family:var(--serif-display);font-weight:700;font-size:14px;color:var(--blue-text);text-transform:uppercase;letter-spacing:0;margin-bottom:6px}
+.kicker.live{display:flex;gap:8px;align-items:center}
+.kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--red);display:inline-block}
+.kicker .direto{font-family:var(--sans);font-weight:700;color:var(--ink);letter-spacing:.2px;font-size:14px}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;background:#000;color:#fff;font-family:var(--serif-display);font-size:10px;font-weight:700;margin-right:4px;vertical-align:2px}
+.h-md{font-family:var(--serif-display);font-weight:700;font-size:19px;line-height:22px}
+.h-xl{font-family:var(--serif-display);font-weight:700;font-size:30px;line-height:32px;letter-spacing:-.2px}
+.byline{font-size:12px;margin-top:12px;color:var(--ink)}
+.byline .time{color:var(--muted);margin-right:4px}
+.lead{font-family:var(--serif);font-weight:300;font-size:15px;line-height:18px;color:#222;margin-top:20px}
+.updated{color:var(--red);font-size:12px;margin-top:18px}
+.comments{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted);margin-top:12px}
+.comments svg{width:14px;height:14px;stroke:#000;fill:none;stroke-width:2}
+.bullets{list-style:none;margin-top:6px}
+.bullets li{position:relative;padding-left:16px;font-size:14px;line-height:18px;margin-top:8px}
+.bullets li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--blue-text)}
+.timeline{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.timeline .t{position:relative;font-size:13px;line-height:18px;padding-top:2px}
+.timeline .t .when{color:var(--red);font-size:12px;display:flex;align-items:center;gap:8px}
+.timeline .t .when::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--red);flex:none}
+.timeline .t .when::after{content:"";flex:1;height:1px;background:var(--line)}
+.timeline .t p{margin-top:4px}
+.chat{position:fixed;right:12px;bottom:90px;width:48px;height:48px;border-radius:50%;background:#0b4f86;border:3px solid #fff;box-shadow:0 0 0 2px #0b4f86;display:flex;align-items:center;justify-content:center}
+.chat svg{width:22px;height:22px;fill:#fff}
+
+@media(max-width:1100px){
+  .grid{grid-template-columns:1fr 1fr;gap:40px 40px}
+  .col + .col::before{display:none}
+  .mainbar{padding:0 16px}
+  .logo{font-size:34px}
+  .mainbar .right a.code{display:none}
+}
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .brands{display:none}
+  .timeline{grid-template-columns:1fr}
+  .mainbar .left a{display:none}
+}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb.lg{aspect-ratio:16/10}
+.h-lg{font-family:var(--serif-display);font-weight:800;font-size:23px;line-height:26px;letter-spacing:-.2px}
+.sum{font-family:var(--serif);font-weight:300;font-size:15px;line-height:19px;color:#222;margin-top:10px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brands"><a href="parodia.html">Nes-processo</a><a href="parodia.html">Tribuna</a><a href="parodia.html">Blitz</a><a href="parodia.html">Boa Cama Boa Mesa</a><a href="parodia.html">Emprego</a><a href="parodia.html">Nes-processinho</a><a href="parodia.html">O Mirante</a></div>
+  <div class="mainbar">
+    <div class="left">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <a href="parodia.html">Exclusivos</a><a href="parodia.html">Semanário</a>
+    </div>
+    <a href="index.html" class="logo">Nes-processo</a>
+    <div class="right">
+      <a href="parodia.html" class="code">Inserir código</a>
+      <a href="parodia.html" class="btn-sub">Subscreva 1€/sem</a>
+      <a href="parodia.html" class="login"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Login</a>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="parodia.html">Últimas</a><a href="parodia.html">Tempestades</a><a href="parodia.html">Opinião</a><a href="parodia.html">Política</a><a href="parodia.html">Economia</a><a href="parodia.html">Imobiliário</a><a href="parodia.html">Revista</a><a href="parodia.html">Internacional</a><a href="parodia.html">Sociedade</a><a href="parodia.html">Geração E</a><a href="parodia.html">Blitz</a><a href="parodia.html">Tribuna</a><a href="parodia.html">Podcasts</a><a href="parodia.html">Jogos</a>
+  </nav>
+</header>
+
+<main class="page">
+<div class="grid">
+
+  <!-- Coluna 1 -->
+  <div class="col c1">
+    <article>
+      <a href="parodia.html">
+        <div class="thumb"><svg viewBox="0 0 201 133" preserveAspectRatio="xMidYMid slice"><rect width="201" height="133" fill="#0b5a8c"/><path d="M85 12l28 4 6 30-12 24 4 22-14 30-22-8 2-40-10-30z" fill="#7a3a3a"/><g fill="#8fd0f0"><circle cx="95" cy="50" r="3"/><circle cx="104" cy="62" r="3"/><circle cx="92" cy="80" r="3"/><circle cx="100" cy="98" r="3"/><circle cx="108" cy="26" r="3"/></g></svg></div>
+        <div class="kicker">Tempestades</div>
+        <h2 class="h-md">Tempestade Marta: o mapa para ver a localização das ocorrências em tempo real</h2>
+        <div class="byline">Inês Carvalhal</div>
+      </a>
+      <ul class="bullets"><li><a href="parodia.html">Tempestade Marta trouxe mais chuva ao Algarve do que em 2012, mas sem ocorrências graves</a></li></ul>
+    </article>
+    <hr class="sep">
+    <article>
+      <a href="parodia.html">
+        <div class="thumb"><svg viewBox="0 0 201 133" preserveAspectRatio="xMidYMid slice"><rect width="201" height="133" fill="#2a2724"/><rect y="95" width="201" height="38" fill="#3b3733"/><rect x="95" y="40" width="14" height="40" rx="3" fill="#1e2a4a"/><circle cx="102" cy="34" r="6" fill="#c4a07a"/><ellipse cx="60" cy="90" rx="22" ry="9" fill="#6b5a45"/></svg></div>
+        <div class="kicker">Tempestades</div>
+        <h2 class="h-md"><span class="badge">E</span>Uma quarta-feira de manhã como um domingo de inverno: “Antigamente também chovia e trabalhava-se, agora ficam em casa”</h2>
+        <div class="byline"><span class="time">Há uma hora</span> Marta Figueiredo e Hugo Salgado</div>
+      </a>
+    </article>
+  </div>
+
+  <!-- Coluna 2 (destaque) -->
+  <div class="col c2">
+    <article class="hero">
+      <a href="artigo.html">
+        <div class="thumb"><svg viewBox="0 0 467 308" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd3e8"/><stop offset=".45" stop-color="#2a8fb8"/><stop offset="1" stop-color="#0a3d62"/></linearGradient></defs><rect width="467" height="308" fill="url(#sea)"/><path d="M0 120q60-18 117 0t117 0 117 0 116 0v14H0z" fill="#fff" opacity=".35"/><g transform="translate(150 70) rotate(-12)"><path d="M10 70q60-50 120-20 40 14 70 30-40 24-85 26-60 6-105-36z" fill="#d7e6ee"/><path d="M60 52q40-70 120-62-30 22-52 52z" fill="#9cc2d6" opacity=".9"/><path d="M70 74q40 30 110 54-70 6-120-28z" fill="#9cc2d6" opacity=".9"/><circle cx="36" cy="66" r="4" fill="#0a3d62"/></g><g fill="#fff" opacity=".5"><circle cx="90" cy="230" r="6"/><circle cx="110" cy="260" r="4"/><circle cx="380" cy="210" r="7"/><circle cx="360" cy="250" r="4"/></g></svg></div>
+        <div class="kicker live"><span class="dot"></span><span class="direto">OPINIÃO</span> Sociedade</div>
+        <h1 class="h-xl">Aquário de 2026: os peixes de Vieira continuam entre nós?</h1>
+        <p class="lead">Quase quatro séculos depois do “Sermão de Santo António aos Peixes”, a vaidade e a ambição sem freio que o padre jesuíta censurava no peixe-voador têm novo palco: as redes sociais. O caso de Jimmy Donaldson, o MrBeast, mostra onde acaba a ambição saudável e começa o risco para quem está à volta.</p>
+        <div class="updated">Leia o artigo completo</div>
+        <div class="byline" style="margin-top:4px">André Marques Rizzon</div>
+      </a>
+      <div class="timeline">
+        <div class="t"><div class="when">O sermão</div><p>Vieira usa a alegoria dos peixes para criticar a sociedade do seu tempo sem enfrentar a censura</p></div>
+        <div class="t"><div class="when">O caso</div><p>Desafio de 5 milhões de dólares, 1000 participantes e uma ação coletiva: até onde vai a popularidade?</p></div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Coluna 3 -->
+  <div class="col c3">
+    <article>
+      <a href="artigo-roncadores.html">
+        <div class="thumb lg"><img src="imagens/capa-roncadores.svg" alt="Ilustração de um peixe roncador rodeado de ondas de som e corações"></div>
+        <div class="kicker">Opinião</div>
+        <h2 class="h-lg"><span class="badge">E</span>Roncadores de 2026: quem faz mais barulho nas redes tem mais razão?</h2>
+        <p class="sum">Pequeno mas barulhento, o roncador de Vieira vive hoje nas redes sociais. Uma série de ficção científica mostra onde acaba a exibição e começa a solidão.</p>
+        <div class="byline"><span class="time">Há 7 minutos</span> André Marques Rizzon</div>
+      </a>
+    </article>
+    <hr class="sep">
+    <article>
+      <a href="artigo-polvo.html">
+        <div class="thumb lg"><img src="imagens/capa-polvo.svg" alt="Ilustração de um polvo camuflado entre rochas a observar um peixe pequeno"></div>
+        <div class="kicker">Sociedade</div>
+        <h2 class="h-lg"><span class="badge">E</span>O polvo de 2026: o amigo que sorri à frente e fala por trás</h2>
+        <p class="sum">Disfarçado de amigo, o polvo espalha segredos e prejudica pelas costas. Shakespeare deu-lhe um nome: Iago.</p>
+        <div class="byline">André Marques Rizzon</div>
+      </a>
+    </article>
+  </div>
+
+  <!-- Coluna 4 -->
+  <div class="col c4">
+    <article>
+      <a href="artigo-pegadores.html">
+        <div class="thumb lg"><img src="imagens/capa-pegadores.svg" alt="Ilustração de um tubarão com pequenos peixes agarrados e moedas a cair"></div>
+        <div class="kicker">Sociedade</div>
+        <h2 class="h-lg"><span class="badge">E</span>Pegadores de 2026: quem se cola ao poder para viver das sobras</h2>
+        <p class="sum">Colados a famosos, políticos e ricos, os pegadores vivem do que os grandes deixam. “Parasita” retrata-os numa casa de bairro nobre.</p>
+        <div class="byline"><span class="time">12:43</span> André Marques Rizzon</div>
+      </a>
+    </article>
+    <hr class="sep">
+    <article>
+      <a href="parodia.html">
+        <div class="thumb"><svg viewBox="0 0 201 133" preserveAspectRatio="xMidYMid slice"><rect width="201" height="133" fill="#b8b8b6"/><rect y="0" width="201" height="60" fill="#d6d6d4"/><g stroke="#555" stroke-width="3"><path d="M20 10v60M50 10v60M80 10v60M110 10v60M140 10v60M170 10v60"/></g><rect y="95" width="201" height="38" fill="#8a8a88"/><circle cx="100" cy="75" r="14" fill="#77806f"/></svg></div>
+        <div class="kicker">Poder Local</div>
+        <h2 class="h-md"><span class="badge">E</span>“Não há respeito pela segurança destas pessoas”: sindicato critica Câmara por colocar trabalhadores a limpar monumento durante tempestade</h2>
+        <div class="byline"><span class="time">Há uma hora</span> Teresa Lacerda</div>
+      </a>
+    </article>
+  </div>
+
+</div>
+</main>
+
+<a href="parodia.html" class="chat" aria-label="Notificações"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v4l-2 3v1h16v-1l-2-3V8a6 6 0 0 0-6-6zm0 20a3 3 0 0 0 3-3H9a3 3 0 0 0 3 3z"/></svg></a>
+
+</body>
+</html>

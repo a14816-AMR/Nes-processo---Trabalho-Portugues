@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<defs>
+<linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8e4f2"/><stop offset=".4" stop-color="#2f90b8"/><stop offset="1" stop-color="#072c48"/></linearGradient>
+<linearGradient id="ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d7381"/><stop offset=".55" stop-color="#8ea3ae"/><stop offset=".56" stop-color="#e9f0f3"/><stop offset="1" stop-color="#d3dde2"/></linearGradient>
+<radialGradient id="coin" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff3b0"/><stop offset=".6" stop-color="#f2b73c"/><stop offset="1" stop-color="#b9771b"/></radialGradient>
+<g id="rem"><path d="M0 14q18-14 40-4l16-10v28l-16-10q-22 10-40-4z" fill="#d9a63c"/><path d="M-2 8h20v12H-2z" fill="#5a4318" opacity=".55"/><path d="M0 10h16M0 14h16M0 18h16" stroke="#f6dc8c" stroke-width="1.500"/><circle cx="30" cy="12" r="2.500" fill="#072c48"/></g>
+<g id="coinG"><circle r="16" fill="url(#coin)"/><circle r="11" fill="none" stroke="#b9771b" stroke-width="2"/><text y="6" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="16" fill="#9a5f12">$</text></g>
+</defs>
+<rect width="800" height="500" fill="url(#w)"/>
+<g fill="url(#ray)"><polygon points="60,0 150,0 330,500 170,500"/><polygon points="420,0 500,0 720,500 560,500"/></g>
+<path d="M0 450q140-40 300-10t300-10 200 10v60H0z" fill="#051f35"/>
+<g fill="#e0607a"><circle cx="90" cy="474" r="16"/><circle cx="120" cy="482" r="11"/><circle cx="700" cy="476" r="15"/></g>
+<g fill="none" stroke="#1f9a74" stroke-width="10" stroke-linecap="round"><path d="M40 500q-24-50 6-96"/><path d="M760 500q24-60-4-110"/></g>
+<g transform="translate(60 110)">
+<path d="M0 150q90-120 260-100 80 10 170 70l-24 6q26 20 40 52-60-10-100-20Q180 250 40 190z" fill="url(#sh)"/>
+<path d="M200 56q-8-60 20-98 30 40 64 102z" fill="#5d7381"/>
+<path d="M240 218q20 54 6 90-40-30-64-84z" fill="#6c8594"/>
+<path d="M120 210q-46 40-100 40 40-14 70-44z" fill="#6c8594"/>
+<path d="M410 126q60-60 100-80-14 50-34 90 20 32 40 70-50-16-92-34z" fill="#5d7381"/>
+<g stroke="#46606f" stroke-width="3" fill="none" stroke-linecap="round"><path d="M150 120q-8 20 0 42"/><path d="M164 118q-8 20 0 42"/><path d="M178 116q-8 20 0 42"/></g>
+<circle cx="90" cy="130" r="7" fill="#06202e"/><circle cx="88" cy="128" r="2" fill="#fff"/>
+<path d="M18 164q50 20 120 10" stroke="#06202e" stroke-width="3" fill="none" stroke-linecap="round"/>
+<g fill="#fff"><polygon points="40,170 46,184 52,172"/><polygon points="62,176 68,190 74,177"/><polygon points="86,178 92,191 98,178"/></g>
+</g>
+<use href="#rem" transform="translate(230 270) rotate(10)"/>
+<use href="#rem" transform="translate(300 290) rotate(6)"/>
+<use href="#rem" transform="translate(370 296) rotate(4)"/>
+<use href="#rem" transform="translate(250 130) rotate(-12) scale(.9)"/>
+<use href="#rem" transform="translate(420 190) rotate(-4) scale(.8)"/>
+<g>
+<use href="#coinG" transform="translate(600 60) scale(1.1)"/><use href="#coinG" transform="translate(660 130) scale(.9)"/><use href="#coinG" transform="translate(560 190) scale(.8)"/><use href="#coinG" transform="translate(700 240) scale(1)"/><use href="#coinG" transform="translate(630 330) scale(.7)"/>
+</g>
+<g fill="none" stroke="#fff" stroke-width="2.500" opacity=".6"><circle cx="130" cy="90" r="9"/><circle cx="160" cy="60" r="6"/><circle cx="520" cy="320" r="10"/><circle cx="480" cy="360" r="6"/></g>
+<text x="400" y="480" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="30" fill="#fff" opacity=".9" letter-spacing="2">PEGADORES</text>
+</svg>
